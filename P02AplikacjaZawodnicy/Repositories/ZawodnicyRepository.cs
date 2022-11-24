@@ -82,14 +82,30 @@ namespace P02AplikacjaZawodnicy.Repositories
 
         public void DodajNowego(Zawodnik zawodnik)
         {
+            SqlParameter param1 = new SqlParameter()
+            {
+                ParameterName = "@idTreneraXX",
+                SqlDbType = System.Data.SqlDbType.Int,
+                //Value = zawodnik.Id_trenera== null ? DBNull.Value : zawodnik.Id_trenera
+            };
+            if (zawodnik.Id_trenera == null)
+                param1.Value = DBNull.Value;
+            else
+                param1.Value = zawodnik.Id_zawodnika;
+
+            SqlParameter param2 = new SqlParameter()
+            {
+                ParameterName = "@dataUr",
+                SqlDbType = System.Data.SqlDbType.DateTime2,
+            };
+            if (zawodnik.DataUrodzenia == null)
+                param1.Value = DBNull.Value;
+            else
+                param1.Value = zawodnik.DataUrodzenia;
+
             SqlParameter[] parametry = 
             {
-                new SqlParameter() 
-                { 
-                    ParameterName="@idTreneraXX",
-                    SqlDbType = System.Data.SqlDbType.Int,
-                    Value = DBNull.Value 
-                },
+                 param1,
                  new SqlParameter()
                 {
                     ParameterName="@imieY",
@@ -108,12 +124,7 @@ namespace P02AplikacjaZawodnicy.Repositories
                     SqlDbType = System.Data.SqlDbType.VarChar,
                     Value = zawodnik.Kraj
                 },
-                 new SqlParameter()
-                {
-                    ParameterName="@dataUr",
-                    SqlDbType = System.Data.SqlDbType.DateTime2,
-                    Value = zawodnik.DataUrodzenia,
-                },
+                param2,
                     new SqlParameter()
                 {
                     ParameterName="@wzrost",
