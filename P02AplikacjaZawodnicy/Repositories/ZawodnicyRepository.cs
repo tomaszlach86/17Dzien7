@@ -79,6 +79,9 @@ namespace P02AplikacjaZawodnicy.Repositories
             pzb.WyslijPolecenieSQL(sql);
         }
 
-
+        public void DodajNowego(Zawodnik zawodnik)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

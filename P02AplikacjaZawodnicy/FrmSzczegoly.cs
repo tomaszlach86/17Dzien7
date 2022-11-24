@@ -14,15 +14,29 @@ namespace P02AplikacjaZawodnicy
 {
     public partial class FrmSzczegoly : Form
     {
-        private Zawodnik zawodnik;
-        private FrmStartowy fs;
+        enum TrybOkna
+        {
+            Dodawanie,
+            Edycja
+        }
 
-        public FrmSzczegoly(Zawodnik zawodnik, FrmStartowy fs)
+        private Zawodnik zawodnik = null;
+        private FrmStartowy fs;
+        private TrybOkna trybOkna;
+
+        public FrmSzczegoly(FrmStartowy fs)
         {
             InitializeComponent();
+            this.fs = fs;
+            trybOkna = TrybOkna.Dodawanie;
+        }
+
+        public FrmSzczegoly(Zawodnik zawodnik,
+            FrmStartowy fs) : this(fs)
+        {
             UzupelnijFormularz(zawodnik);
             this.zawodnik = zawodnik;
-            this.fs = fs;
+            trybOkna = TrybOkna.Edycja;
         }
 
         public void UzupelnijFormularz(Zawodnik zawodnik)
@@ -40,12 +54,25 @@ namespace P02AplikacjaZawodnicy
             fs.frmSzczegoly = null;
         }
 
-        private async void btnZapisz_Click(object sender, EventArgs e)
-        {
-            ZczytytajFormularz();
-
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {          
             ZawodnicyRepository zr = new ZawodnicyRepository();
-            zr.Edytuj(zawodnik);
+
+            // jestesmy w trybie dodawania
+            if (trybOkna == TrybOkna.Dodawanie)
+            {
+                zawodnik = new Zawodnik();
+                ZczytytajFormularz();
+                zr.DodajNowego(zawodnik);
+            }
+            else if (trybOkna == TrybOkna.Edycja) // jestesmy w tryvie dycji 
+            {
+                ZczytytajFormularz();
+                zr.Edytuj(zawodnik);
+            }
+            else
+                throw new NotImplementedException();
+            
         }
 
         private void ZczytytajFormularz()

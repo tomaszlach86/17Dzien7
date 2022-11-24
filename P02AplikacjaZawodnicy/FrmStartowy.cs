@@ -44,10 +44,16 @@ namespace P02AplikacjaZawodnicy
                 frmSzczegoly.Show();
             }
             else
-                frmSzczegoly.UzupelnijFormularz(zaznaczony);
-            
+                frmSzczegoly.UzupelnijFormularz(zaznaczony);       
+        }
 
-            
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            if (frmSzczegoly == null)
+            {
+                frmSzczegoly = new FrmSzczegoly(this);
+                frmSzczegoly.Show();
+            }
         }
     }
 }
