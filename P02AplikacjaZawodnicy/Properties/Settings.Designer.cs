@@ -22,5 +22,15 @@ namespace P02AplikacjaZawodnicy.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=A_Zawodnicy;User ID=sa;Password=alx")]
+        public string A_ZawodnicyConnectionString {
+            get {
+                return ((string)(this["A_ZawodnicyConnectionString"]));
+            }
+        }
     }
 }
