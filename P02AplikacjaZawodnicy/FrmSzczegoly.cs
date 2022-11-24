@@ -73,8 +73,7 @@ namespace P02AplikacjaZawodnicy
                 zr.Edytuj(zawodnik);
             }
             else
-                throw new NotImplementedException();
-            
+                throw new NotImplementedException();            
         }
 
         private void ZczytytajFormularz()
