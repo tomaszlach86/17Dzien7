@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02AplikacjaZawodnicy", "P0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03SQLInjection", "P03SQLInjection\P03SQLInjection.csproj", "{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04WstepORM", "P04WstepORM\P04WstepORM.csproj", "{E8F81BCB-4D5C-4EEC-9849-6B7B3E5807BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F81BCB-4D5C-4EEC-9849-6B7B3E5807BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F81BCB-4D5C-4EEC-9849-6B7B3E5807BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F81BCB-4D5C-4EEC-9849-6B7B3E5807BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F81BCB-4D5C-4EEC-9849-6B7B3E5807BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
