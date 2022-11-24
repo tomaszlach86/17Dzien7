@@ -175,7 +175,6 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Enabled = false;
             this.btnUsun.Location = new System.Drawing.Point(21, 310);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(75, 23);

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01SlowoThis", "P01SlowoThi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02AplikacjaZawodnicy", "P02AplikacjaZawodnicy\P02AplikacjaZawodnicy.csproj", "{4AA3CA24-4D16-4E41-AC2E-BCB38B455CD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03SQLInjection", "P03SQLInjection\P03SQLInjection.csproj", "{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4AA3CA24-4D16-4E41-AC2E-BCB38B455CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AA3CA24-4D16-4E41-AC2E-BCB38B455CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AA3CA24-4D16-4E41-AC2E-BCB38B455CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ADD9BDB-B56A-4A77-8B37-3778495FBBEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

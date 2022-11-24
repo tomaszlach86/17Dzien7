@@ -1,4 +1,5 @@
 ﻿using P02AplikacjaZawodnicy.Domain;
+using P02AplikacjaZawodnicy.Exceptions;
 using P02AplikacjaZawodnicy.Repositories;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,13 @@ namespace P02AplikacjaZawodnicy
 
         private void ZczytytajFormularz()
         {
+            string[] poleceniaZakazne = { "delete", "update", "select" };
+
+            foreach (var p in poleceniaZakazne)
+                if (txtKrajZawodnika.Text.ToLower().Contains(p))
+                    throw new NiebezpiecznyKodException();
+                   
+            
             zawodnik.Imie = txtImie.Text;
             zawodnik.Nazwisko = txtNazwisko.Text;
             zawodnik.Kraj = txtKrajZawodnika.Text;
