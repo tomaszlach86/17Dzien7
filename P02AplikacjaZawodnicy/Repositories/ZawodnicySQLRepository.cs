@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 
 namespace P02AplikacjaZawodnicy.Repositories
 {
+    [Obsolete]
     internal class ZawodnicySQLRepository
     {
         public Zawodnik[] PodajZawodnikow()

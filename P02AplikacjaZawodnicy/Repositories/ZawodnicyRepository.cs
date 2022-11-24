@@ -11,10 +11,25 @@ namespace P02AplikacjaZawodnicy.Repositories
 {
     internal class ZawodnicyRepository
     {
-        public Zawodnik[] PodajZawodnikow()
+        public Zawodnik[] PodajZawodnikow(string filtr)
         {
+            
+
+
             ModelBazyDataContext db = new ModelBazyDataContext();
-            ZawodnikDB[] zawodnicy = db.ZawodnikDB.ToArray();
+            filtr = filtr.ToLower();
+            ZawodnikDB[] zawodnicy;
+            if (string.IsNullOrEmpty(filtr))
+                zawodnicy = db.ZawodnikDB.ToArray();
+            else
+                zawodnicy = db.ZawodnikDB.ToArray().Where(x =>
+                    x.imie.ToLower().Contains(filtr) ||
+                    x.nazwisko.ToLower().Contains(filtr) ||
+                    x.kraj.ToLower().Contains(filtr) ||
+                    (x.data_ur != null && x.data_ur.Value.ToString("ddMMyyyy").Contains(filtr)) ||
+                    x.waga.ToString().Contains(filtr) ||
+                    x.wzrost.ToString().Contains(filtr)
+                    ).ToArray();
 
             Zawodnik[] wynik = new Zawodnik[zawodnicy.Length];
             for (int i = 0; i < zawodnicy.Length; i++)

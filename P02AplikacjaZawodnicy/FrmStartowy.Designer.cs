@@ -32,14 +32,16 @@
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.btnSzczegoly = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
+            this.txtSzukaj = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbDane
             // 
             this.lbDane.FormattingEnabled = true;
-            this.lbDane.Location = new System.Drawing.Point(12, 41);
+            this.lbDane.Location = new System.Drawing.Point(12, 67);
             this.lbDane.Name = "lbDane";
-            this.lbDane.Size = new System.Drawing.Size(344, 316);
+            this.lbDane.Size = new System.Drawing.Size(344, 290);
             this.lbDane.TabIndex = 0;
             // 
             // btnWczytaj
@@ -72,11 +74,29 @@
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
+            // txtSzukaj
+            // 
+            this.txtSzukaj.Location = new System.Drawing.Point(57, 41);
+            this.txtSzukaj.Name = "txtSzukaj";
+            this.txtSzukaj.Size = new System.Drawing.Size(299, 20);
+            this.txtSzukaj.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Szukaj";
+            // 
             // FrmStartowy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 366);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSzukaj);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.btnWczytaj);
@@ -84,6 +104,7 @@
             this.Name = "FrmStartowy";
             this.Text = "Zawodnicy";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,6 +114,8 @@
         private System.Windows.Forms.Button btnWczytaj;
         private System.Windows.Forms.Button btnSzczegoly;
         private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.TextBox txtSzukaj;
+        private System.Windows.Forms.Label label1;
     }
 }
 

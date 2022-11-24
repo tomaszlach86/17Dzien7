@@ -29,7 +29,7 @@ namespace P02AplikacjaZawodnicy
         public void Odswiez()
         {
             ZawodnicyRepository zr = new ZawodnicyRepository();
-            lbDane.DataSource = zr.PodajZawodnikow();
+            lbDane.DataSource = zr.PodajZawodnikow(txtSzukaj.Text);
             lbDane.DisplayMember = "DaneRaportowe";
         }
 
