@@ -13,9 +13,6 @@ namespace P02AplikacjaZawodnicy.Repositories
     {
         public Zawodnik[] PodajZawodnikow(string filtr)
         {
-            
-
-
             ModelBazyDataContext db = new ModelBazyDataContext();
             filtr = filtr.ToLower();
             ZawodnikDB[] zawodnicy;
