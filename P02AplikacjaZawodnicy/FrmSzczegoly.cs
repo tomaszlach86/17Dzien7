@@ -59,22 +59,30 @@ namespace P02AplikacjaZawodnicy
         {          
             ZawodnicyRepository zr = new ZawodnicyRepository();
 
-            // jestesmy w trybie dodawania
-            if (trybOkna == TrybOkna.Dodawanie)
+            try
             {
-                zawodnik = new Zawodnik();
-                ZczytytajFormularz();
-                zr.DodajNowego(zawodnik);
-                fs.Odswiez();
-                Close();
+                // jestesmy w trybie dodawania
+                if (trybOkna == TrybOkna.Dodawanie)
+                {
+                    zawodnik = new Zawodnik();
+                    ZczytytajFormularz();
+                    zr.DodajNowego(zawodnik);
+                    fs.Odswiez();
+                    Close();
+                }
+                else if (trybOkna == TrybOkna.Edycja) // jestesmy w tryvie dycji 
+                {
+                    ZczytytajFormularz();
+                    zr.Edytuj(zawodnik);
+                }
+                else
+                    throw new NotImplementedException();
             }
-            else if (trybOkna == TrybOkna.Edycja) // jestesmy w tryvie dycji 
+            catch (NiebezpiecznyKodException)
             {
-                ZczytytajFormularz();
-                zr.Edytuj(zawodnik);
+                MessageBox.Show("Próbowałeś podać niebezpieczny kod");
             }
-            else
-                throw new NotImplementedException();            
+                 
         }
 
         private void ZczytytajFormularz()
@@ -84,8 +92,7 @@ namespace P02AplikacjaZawodnicy
             foreach (var p in poleceniaZakazne)
                 if (txtKrajZawodnika.Text.ToLower().Contains(p))
                     throw new NiebezpiecznyKodException();
-                   
-            
+    
             zawodnik.Imie = txtImie.Text;
             zawodnik.Nazwisko = txtNazwisko.Text;
             zawodnik.Kraj = txtKrajZawodnika.Text;

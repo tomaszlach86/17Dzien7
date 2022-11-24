@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace P02AplikacjaZawodnicy.Repositories
 {
@@ -81,17 +82,53 @@ namespace P02AplikacjaZawodnicy.Repositories
 
         public void DodajNowego(Zawodnik zawodnik)
         {
-            string sql =
-               string.Format("insert into zawodnicy values ({0},'{1}','{2}','{3}',{4},{5},{6})",
-               zawodnik.Id_trenera == null ? "null" : Convert.ToString(zawodnik.Id_trenera),
-               zawodnik.Imie,
-               zawodnik.Nazwisko,
-               zawodnik.Kraj,
-               zawodnik.DataUrodzenia == null ? "null" : $"'{zawodnik.DataUrodzenia?.ToString("yyyyMMdd")}'",
-               zawodnik.Wzrost,
-               zawodnik.Waga
-               );
+            SqlParameter[] parametry = 
+            {
+                new SqlParameter() 
+                { 
+                    ParameterName="@idTreneraXX",
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    Value = zawodnik.Id_trenera == null ? "null" : Convert.ToString(zawodnik.Id_trenera)
+                },
+                 new SqlParameter()
+                {
+                    ParameterName="@imieY",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = zawodnik.Imie
+                },
+                 new SqlParameter()
+                {
+                    ParameterName="@nazwisko",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = zawodnik.Nazwisko
+                },
+                   new SqlParameter()
+                {
+                    ParameterName="@kraj",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = zawodnik.Kraj
+                },
+                 new SqlParameter()
+                {
+                    ParameterName="@dataUr",
+                    SqlDbType = System.Data.SqlDbType.DateTime2,
+                    Value = zawodnik.DataUrodzenia == null ? "null" : $"'{zawodnik.DataUrodzenia?.ToString("yyyyMMdd")}'",
+                },
+                    new SqlParameter()
+                {
+                    ParameterName="@wzrost",
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    Value = zawodnik.Wzrost,
+                },
+                 new SqlParameter()
+                {
+                    ParameterName="@waga",
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    Value = zawodnik.Waga,
+                },
+            };
 
+            string sql = "insert into zawodnicy values (@idTreneraXX, @imieY, @nazwisko, @kraj,@dataUr, @wzrost, @waga)";              );
             PolaczenieZBaza pzb = new PolaczenieZBaza();
             pzb.WyslijPolecenieSQL(sql);
         }
