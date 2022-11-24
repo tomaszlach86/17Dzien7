@@ -95,5 +95,7 @@ namespace P02AplikacjaZawodnicy.Repositories
             PolaczenieZBaza pzb = new PolaczenieZBaza();
             pzb.WyslijPolecenieSQL(sql);
         }
+
+        //pol','20200101',90, 180) delete zawodnicy--
     }
 }
