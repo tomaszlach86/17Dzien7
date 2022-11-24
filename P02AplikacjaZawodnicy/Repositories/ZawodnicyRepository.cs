@@ -81,7 +81,19 @@ namespace P02AplikacjaZawodnicy.Repositories
 
         public void DodajNowego(Zawodnik zawodnik)
         {
-            throw new NotImplementedException();
+            string sql =
+               string.Format("insert into zawodnicy values ({0},'{1}','{2}','{3}',{4},{5},{6})",
+               zawodnik.Id_trenera == null ? "null" : Convert.ToString(zawodnik.Id_trenera),
+               zawodnik.Imie,
+               zawodnik.Nazwisko,
+               zawodnik.Kraj,
+               zawodnik.DataUrodzenia == null ? "null" : $"'{zawodnik.DataUrodzenia?.ToString("yyyyMMdd")}'",
+               zawodnik.Wzrost,
+               zawodnik.Waga
+               );
+
+            PolaczenieZBaza pzb = new PolaczenieZBaza();
+            pzb.WyslijPolecenieSQL(sql);
         }
     }
 }

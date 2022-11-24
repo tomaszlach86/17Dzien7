@@ -64,6 +64,8 @@ namespace P02AplikacjaZawodnicy
                 zawodnik = new Zawodnik();
                 ZczytytajFormularz();
                 zr.DodajNowego(zawodnik);
+                fs.Odswiez();
+                Close();
             }
             else if (trybOkna == TrybOkna.Edycja) // jestesmy w tryvie dycji 
             {
