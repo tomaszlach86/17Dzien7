@@ -36,17 +36,45 @@ namespace P02AplikacjaZawodnicy.Repositories
 
         public void Edytuj(Zawodnik z)
         {
-             
+            ModelBazyDataContext db = new ModelBazyDataContext();
+            ZawodnikDB zdb = db.ZawodnikDB.FirstOrDefault(x=>x.id_zawodnika==z.Id_zawodnika);
+
+            zdb.id_trenera = z.Id_trenera;
+            zdb.imie = z.Imie;
+            zdb.nazwisko = z.Nazwisko;
+            zdb.kraj = z.Kraj;
+            zdb.data_ur = z.DataUrodzenia;
+            zdb.wzrost = z.Wzrost;
+            zdb.waga = z.Waga;
+
+            db.SubmitChanges();
         }
 
         public void Usun(int id)
         {
-             
+            ModelBazyDataContext db = new ModelBazyDataContext();
+            ZawodnikDB zdb = db.ZawodnikDB.FirstOrDefault(x => x.id_zawodnika == id);
+            db.ZawodnikDB.DeleteOnSubmit(zdb);
+            db.SubmitChanges();
         }
 
         public void DodajNowego(Zawodnik zawodnik)
         {
-             
+            ModelBazyDataContext db = new ModelBazyDataContext();
+
+            ZawodnikDB zdb = new ZawodnikDB()
+            {
+                id_trenera = zawodnik.Id_trenera,
+                id_zawodnika = zawodnik.Id_zawodnika,
+                imie = zawodnik.Imie,
+                nazwisko = zawodnik.Nazwisko,
+                kraj = zawodnik.Kraj,
+                waga = zawodnik.Waga,
+                data_ur = zawodnik.DataUrodzenia,
+                wzrost = zawodnik.Wzrost
+            };
+            db.ZawodnikDB.InsertOnSubmit(zdb);
+            db.SubmitChanges();
         }
 
          
