@@ -21,14 +21,14 @@ namespace P02AplikacjaZawodnicy.Repositories
             {
                 wynik[i] = new Zawodnik()
                 {
-                    Id_zawodnika = wynik[i].Id_zawodnika,
-                    Id_trenera = wynik[i].Id_trenera,
-                    Imie = wynik[i].Imie,
-                    Nazwisko = wynik[i].Nazwisko,
-                    Kraj = wynik[i].Kraj,
-                    Wzrost = wynik[i].Wzrost,
-                    Waga = wynik[i].Waga,
-                    DataUrodzenia = wynik[i].DataUrodzenia
+                    Id_zawodnika = zawodnicy[i].id_zawodnika,
+                    Id_trenera = zawodnicy[i].id_trenera,
+                    Imie = zawodnicy[i].imie,
+                    Nazwisko = zawodnicy[i].nazwisko,
+                    Kraj = zawodnicy[i].kraj,
+                    Wzrost = zawodnicy[i].wzrost,
+                    Waga = zawodnicy[i].waga,
+                    DataUrodzenia = zawodnicy[i].data_ur
                 };
             }
             return wynik;
