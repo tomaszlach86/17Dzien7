@@ -88,7 +88,7 @@ namespace P02AplikacjaZawodnicy.Repositories
                 { 
                     ParameterName="@idTreneraXX",
                     SqlDbType = System.Data.SqlDbType.Int,
-                    Value = zawodnik.Id_trenera == null ? "null" : Convert.ToString(zawodnik.Id_trenera)
+                    Value = DBNull.Value 
                 },
                  new SqlParameter()
                 {
@@ -112,7 +112,7 @@ namespace P02AplikacjaZawodnicy.Repositories
                 {
                     ParameterName="@dataUr",
                     SqlDbType = System.Data.SqlDbType.DateTime2,
-                    Value = zawodnik.DataUrodzenia == null ? "null" : $"'{zawodnik.DataUrodzenia?.ToString("yyyyMMdd")}'",
+                    Value = zawodnik.DataUrodzenia,
                 },
                     new SqlParameter()
                 {
