@@ -130,7 +130,7 @@ namespace P02AplikacjaZawodnicy.Repositories
 
             string sql = "insert into zawodnicy values (@idTreneraXX, @imieY, @nazwisko, @kraj,@dataUr, @wzrost, @waga)";              
             PolaczenieZBaza pzb = new PolaczenieZBaza();
-            pzb.WyslijPolecenieSQL(sql);
+            pzb.WyslijPolecenieSQL(sql,parametry);
         }
 
         //pol','20200101',90, 180) delete zawodnicy--
